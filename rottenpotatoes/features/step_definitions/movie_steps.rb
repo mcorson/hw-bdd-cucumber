@@ -1,12 +1,22 @@
 # Add a declarative step here for populating the DB with movies.
 
+value = 0
 Given /the following movies exist/ do |movies_table|
+  value = 0
   movies_table.hashes.each do |movie|
+      Movie.create(movie)
+      value += 1
+  end
+end
+
+
+#Given /the following movies exist/ do |movies_table|
+#  movies_table.hashes.each do |movie|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
-  end
-  fail "Unimplemented"
-end
+#  end
+#  fail "Unimplemented"
+#end
 
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
